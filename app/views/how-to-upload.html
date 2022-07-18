@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How to upload
+      </h1>
+
+      <h2 class="govuk-heading-s">Make sure your background is clear</h2>
+
+      <p>Please make sure your documents are well lit, in focus, with all details included and minimal background distractions.</p>
+
+      <h2 class="govuk-heading-s">Take photo</h2>
+
+      <p>Do not use flash as this can blur image. If you want to upload multiple documents, take one photo of each.</p>
+
+      <h2 class="govuk-heading-s">Upload document</h2>
+
+      <p>Select chosen file type from dropdown menu, then upload image. There are some restrictions on file type and file size, but most photos taken with a smartphone or digital camera should be fine. There are more details about these restrictions on the page.</p>
+
+      <h2 class="govuk-heading-s">Video tutorial</h2>
+
+      <video controls width="360">
+
+        <source src=""
+                type="video/webm">
+    
+        <source src=""
+                type="video/mp4">
+    
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+    <br>
+    <br>
+
+    {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+    {{ govukDetails({
+      summaryText: "I need help doing things online",
+      text: "For assistance in completing this task, please phone/textphone these numbers 0xxxxxxxxx ... etc, ... more text..."
+    }) }}
+
+
+    <a href="#"><button class="govuk-button" data-module="govuk-button">Continue</button></a>
+
+    </div>
+  </div>
+
+{% endblock %}
