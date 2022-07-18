@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Address lookup</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+        <h2 class="govuk-heading-m">Postcode</h2>
+
+        <p class="govuk-!-font-weight-bold">SE1 4UE <a href="#">change</a></p>
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "sort",
+          name: "sort",
+          label: {
+            text: "Select your address"
+          },
+          items: [
+            {
+              value: "select address",
+              text: "select address from this list",
+              selected: true
+            },
+            {
+              value: "1 Ocean Drive",
+              text: "1 Ocean Drive"
+            },
+            {
+              value: "2 Ocean Drive",
+              text: "2 Ocean Drive"
+            },
+            {
+              value: "3 Ocean Drive",
+              text: "3 Ocean Drive"
+            },
+            {
+              value: "4 Ocean Drive",
+              text: "4 Ocean Drive"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p><a href="#">I can't find my address in this list</a></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
