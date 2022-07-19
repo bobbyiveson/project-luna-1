@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Are we able to contact you for more information?</h1>
+
+    <form class="form" action="/url/of/next/page" method="post">
+
+      <p>We might need some more information before we can verify your identity.</p>
+      <p>We may also need alternative forms of ID in the future if your current ID expires.</p>
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+      idPrefix: "can-we-email-you",
+      name: "can-we-email-you",
+      fieldset: {
+      legend: {
+      text: "Can we email you?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      items: [
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
+      ]
+      })
+      }}
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+      label: {
+      text: "Enter email address",
+      classes: "govuk-label--s",
+      isPageHeading: false
+      },
+      id: "email-address",
+      name: "email-address"
+      }) }}
+
+      {{ govukRadios({
+      idPrefix: "can-we-call-you",
+      name: "can-we-call-you",
+      fieldset: {
+      legend: {
+      text: "Can we call you?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      items: [
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
+      ]
+      })
+      }}
+
+      {{ govukInput({
+      label: {
+      text: "Enter phone number",
+      classes: "govuk-label--s",
+      isPageHeading: false
+      },
+      id: "phone-number",
+      name: "phone-number"
+      }) }}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
