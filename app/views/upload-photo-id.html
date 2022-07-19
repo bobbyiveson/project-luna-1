@@ -23,8 +23,8 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
             id: "upload-photo-id",
             name: "upload-photo-id",
             label: {
-            html: "<legend class='govuk-fieldset__legend govuk-fieldset__legend--m'>Select type of photo identification
-            </legend>"
+            text: "Select type of photo identification",
+            classes: "govuk-label--m"
             },
             items: [
             {
@@ -53,11 +53,11 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
             id: "photo-ID",
             name: "photo-ID",
             label: {
-            html: "<legend class='govuk-fieldset__legend govuk-fieldset__legend--m'>Upload a file
-            </legend>"
+            text: "Upload a file",
+            classes: "govuk-label--m"
             },
             hint: {
-            text: "We can accept the following file types: .jpg .jpeg .png .pdf. We can accept a file with the
+            html: "We can accept the following file types: .jpg .jpeg .png .pdf.<br />We can accept a file with the
             maximum size of 15mb."
             }
             }) }}
