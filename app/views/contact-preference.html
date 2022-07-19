@@ -19,7 +19,37 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
       <p>We might need some more information before we can verify your identity.</p>
       <p>We may also need alternative forms of ID in the future if your current ID expires.</p>
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {% set emailHtml %}
+      {{ govukInput({
+      id: "contact-by-email",
+      name: "contact-by-email",
+      type: "email",
+      autocomplete: "email",
+      spellcheck: false,
+      classes: "govuk-!-width-one-third",
+      label: {
+      text: "Email address"
+      }
+      }) }}
+      {% endset -%}
+
+      {% set phoneHtml %}
+      {{ govukInput({
+      id: "contact-by-phone",
+      name: "contact-by-phone",
+      type: "tel",
+      autocomplete: "tel",
+      spellcheck: false,
+      classes: "govuk-!-width-one-third",
+      label: {
+      text: "Phone number"
+      }
+      }) }}
+      {% endset -%}
 
       {{ govukRadios({
       idPrefix: "can-we-email-you",
@@ -34,7 +64,10 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       items: [
       {
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      conditional: {
+      html: emailHtml
+      }
       },
       {
       value: "no",
@@ -43,18 +76,6 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       ]
       })
       }}
-
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-
-      {{ govukInput({
-      label: {
-      text: "Enter email address",
-      classes: "govuk-label--s",
-      isPageHeading: false
-      },
-      id: "email-address",
-      name: "email-address"
-      }) }}
 
       {{ govukRadios({
       idPrefix: "can-we-call-you",
@@ -69,7 +90,10 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       items: [
       {
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      conditional: {
+      html: phoneHtml
+      }
       },
       {
       value: "no",
@@ -78,16 +102,6 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       ]
       })
       }}
-
-      {{ govukInput({
-      label: {
-      text: "Enter phone number",
-      classes: "govuk-label--s",
-      isPageHeading: false
-      },
-      id: "phone-number",
-      name: "phone-number"
-      }) }}
 
       <button class="govuk-button" data-module="govuk-button">Continue</button>
 
