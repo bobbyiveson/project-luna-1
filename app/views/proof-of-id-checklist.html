@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <form class="form" action="/what-is-your-name" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="id-checklist">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Proof of Identity checklist
+                        </h1>
+                    </legend>
+                    <div class="govuk-grid-row">
+
+                        <div class="govuk-grid-column-one-half">
+                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="passport" name="passport" type="checkbox"
+                                        value="Passport">
+                                    <label class="govuk-label govuk-checkboxes__label" for="passport">
+                                        Passport
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="drivers-license" name="drivers-license"
+                                        type="checkbox" value="Drivers License (Includes provisionals)">
+                                    <label class="govuk-label govuk-checkboxes__label" for="drivers-license">
+                                        Drivers License (Includes provisionals)
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="formal-id-card" name="formal-id-card"
+                                        type="checkbox" value="Formal ID Card">
+                                    <label class="govuk-label govuk-checkboxes__label" for="formal-id-card">
+                                        Formal ID Card (armed forces, Police, student union, company ID card)
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="utility-bill" name="utility-bill"
+                                        type="checkbox" value="Utility bill">
+                                    <label class="govuk-label govuk-checkboxes__label" for="utility-bill">
+                                        Utility bill (gas, electric, water bill)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="govuk-grid-column-one-half">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="building-society-statement"
+                                    name="building-society-statement" type="checkbox"
+                                    value="Building Society Statement">
+                                <label class="govuk-label govuk-checkboxes__label" for="building-society-statement">
+                                    Recent Building Society or Credit Union Statement
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="bank-statement" name="bank-statement"
+                                    type="checkbox" value="Bank Statement">
+                                <label class="govuk-label govuk-checkboxes__label" for="bank-statement">
+                                    Recent credit card or bank statement
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="tenancy-agreement" name="tenancy-agreement"
+                                    type="checkbox" value="Tenancy agreement">
+                                <label class="govuk-label govuk-checkboxes__label" for="tenancy-agreement">
+                                    Tenancy agreement
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="morgage-agreement" name="morgage-agreement"
+                                    type="checkbox" value="Morgage agreement">
+                                <label class="govuk-label govuk-checkboxes__label" for="morgage-agreement">
+                                    Mortgage agreement
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+            <h2 class="govuk-heading-m">No ID?</h2>
+            <p class="govuk-body">If you are unable to provide documentation online please arrange a face to face
+                appointment with your local council. <a href="#"">See List of all council addresses here.</a></p>
+
+            <button class=" govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
