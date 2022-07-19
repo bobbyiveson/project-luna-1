@@ -1,80 +1,76 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Upload proof of address</h1>
+    <h1 class="govuk-heading-xl">Upload proof of address</h1>
 
-      <form class="form" action="/upload-proof-of-address" method="post">
+    <form class="form" action="/contact-preference" method="post">
 
-        {% from "govuk/components/select/macro.njk" import govukSelect %}
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-{{ govukSelect({
-  id: "proof-of-address",
-  name: "proof-of-address",
-  label: { 
-    text: "Select proof of address",
-    classes: "govuk-label--m"
-  },
-  items: [
-    {
-      value: "Utility bill",
-      text: "Utility bill (gas, electric, water bill)"
-    },
-    {
-      value: "Recent credit card or bank statement",
-      text: "Recent credit card or bank statement",
-      selected: true
-    },
-    {
-      value: "Recent Building Society or Credit Union Statement",
-      text: "Recent Building Society or Credit Union Statement"
-    },
-    {
-      value: "Tenancy agreement",
-      text: "Tenancy agreement"
-    },
-    {
-      value: "Mortgage agreement",
-      text: "Mortgage agreement"
-    }
-  ]
-}) }}
+      {{ govukSelect({
+        id: "proof-of-address",
+        name: "proof-of-address",
+        label: {
+          text: "Select proof of address",
+          classes: "govuk-label--m"
+        },
+        items: [
+          {
+            value: "Utility bill",
+            text: "Utility bill (gas, electric, water bill)"
+          },
+          {
+            value: "Recent credit card or bank statement",
+            text: "Recent credit card or bank statement",
+            selected: true
+          },
+          {
+            value: "Recent Building Society or Credit Union Statement",
+            text: "Recent Building Society or Credit Union Statement"
+          },
+          {
+            value: "Tenancy agreement",
+            text: "Tenancy agreement"
+          },
+          {
+            value: "Mortgage agreement",
+            text: "Mortgage agreement"
+          }
+        ]
+      }) }}
 
-{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+      {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
-{{ govukFileUpload({
-  id: "file-upload-1",
-  name: "file-upload-1",
-  label: {
-    text: "Select proof of address file",
-    classes: "govuk-label--m"
-  },
-  
-  hint: { 
-    html: "We can accept the following file types: .jpg, .jpeg, .png, .pdf. <br/> We can accept a file with the maximum size of 15mb."
-}
-}) }}
+      {{ govukFileUpload({
+        id: "file-upload-1",
+        name: "file-upload-1",
+        label: {
+          text: "Select proof of address file",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          html: "We can accept the following file types: .jpg, .jpeg, .png, .pdf. <br /> We can accept a file with the
+          maximum size of 15mb."
+        }
+      }) }}
 
-        <!-- <p>[Insert question content here]</p> -->
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-        <!-- <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p> -->
+    </form>
 
-        <button class="govuk-button" data-module="govuk-button">Upload my proof of address</button>
-
-      </form>
-
-    </div>
+  </div>
   </div>
 
 {% endblock %}
