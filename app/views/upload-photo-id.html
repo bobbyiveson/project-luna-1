@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Upload photo ID</h1>
+
+        <form class="form" action="#" method="post">
+
+            {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+            {{ govukSelect({
+            id: "sort",
+            name: "sort",
+            label: {
+            html: "<legend class='govuk-fieldset__legend govuk-fieldset__legend--m'>Select type of photo identification
+            </legend>"
+            },
+            items: [
+            {
+            value: "select address",
+            text: "select photo identification type from this list",
+            selected: true
+            },
+            {
+            value: "Passport",
+            text: "Passport"
+            },
+            {
+            value: "Driving License",
+            text: "Driving License"
+            },
+            {
+            value: "Formal ID Card",
+            text: "Formal ID Card"
+            }
+            ]
+            }) }}
+
+            {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+            {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "file-upload-1",
+            label: {
+            html: "<legend class='govuk-fieldset__legend govuk-fieldset__legend--m'>Upload a file
+            </legend>"
+            },
+            hint: {
+            text: "We can accept the following file types: .jpg .jpeg .png .pdf. We can accept a file with the
+            maximum size of 15mb."
+            }
+            }) }}
+
+            {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+            {{ govukDateInput({
+            id: "expiration-date",
+            namePrefix: "expiration-date",
+            fieldset: {
+            legend: {
+            text: "Expiration date",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+            }
+            },
+            hint: {
+            text: "Please use the day, month, year format. For example, 27 3 2007"
+            }
+            }) }}
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
