@@ -15,21 +15,21 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
         <h1 class="govuk-heading-xl">Upload photo ID</h1>
 
-        <form class="form" action="#" method="post">
+        <form class="form" action="/upload-proof-of-address" method="post">
 
             {% from "govuk/components/select/macro.njk" import govukSelect %}
 
             {{ govukSelect({
-            id: "sort",
-            name: "sort",
+            id: "upload-photo-id",
+            name: "upload-photo-id",
             label: {
             html: "<legend class='govuk-fieldset__legend govuk-fieldset__legend--m'>Select type of photo identification
             </legend>"
             },
             items: [
             {
-            value: "select address",
-            text: "select photo identification type from this list",
+            value: "Select photo identification type from this list",
+            text: "Select photo identification type from this list",
             selected: true
             },
             {
@@ -50,8 +50,8 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
             {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
             {{ govukFileUpload({
-            id: "file-upload-1",
-            name: "file-upload-1",
+            id: "photo-ID",
+            name: "photo-ID",
             label: {
             html: "<legend class='govuk-fieldset__legend govuk-fieldset__legend--m'>Upload a file
             </legend>"

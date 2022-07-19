@@ -15,37 +15,37 @@
 
       <h1 class="govuk-heading-xl">Upload proof of address</h1>
 
-      <form class="form" action="/url/of/next/page" method="post">
+      <form class="form" action="/upload-proof-of-address" method="post">
 
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {{ govukSelect({
-  id: "sort",
-  name: "sort",
+  id: "proof-of-address",
+  name: "proof-of-address",
   label: { 
     text: "Select proof of address",
     classes: "govuk-label--m"
   },
   items: [
     {
-      value: "utility-bill",
+      value: "Utility bill",
       text: "Utility bill (gas, electric, water bill)"
     },
     {
-      value: "credit-card-or-bank-statement",
+      value: "Recent credit card or bank statement",
       text: "Recent credit card or bank statement",
       selected: true
     },
     {
-      value: "building-society-or-credit-union-statement",
+      value: "Recent Building Society or Credit Union Statement",
       text: "Recent Building Society or Credit Union Statement"
     },
     {
-      value: "tenancy-agreement",
+      value: "Tenancy agreement",
       text: "Tenancy agreement"
     },
     {
-      value: "mortgage-agreement",
+      value: "Mortgage agreement",
       text: "Mortgage agreement"
     }
   ]
