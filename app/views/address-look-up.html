@@ -19,15 +19,15 @@
 
       <p class="govuk-!-font-weight-bold">
           {{ data["postcode"] }}
-          <a href="#" class="govuk-!-display-inline-block govuk-!-padding-left-9 govuk-!-font-weight-regular">
+          <a href="/what-is-your-postcode" class="govuk-!-display-inline-block govuk-!-padding-left-9 govuk-!-font-weight-regular">
             Change
-            <span class="govuk-visually-hidden"> postcode</span>
+            <span class="govuk-visually-hidden">your postcode</span>
           </a>
       </p>
       <br/>
 
 
-      <form action="/confirmation" method="post" novalidate>
+      <form action="/how-to-upload" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
@@ -69,7 +69,7 @@
 
       </form>
 
-      <a href="#">I can't find my address in this list</a>
+      <a href="/address-form">I can't find my address in this list</a>
 
     </div>
   </div>
