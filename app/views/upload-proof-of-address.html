@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Upload proof of address</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: { 
+    text: "Select proof of address",
+    classes: "govuk-label--m"
+  },
+  items: [
+    {
+      value: "utility-bill",
+      text: "Utility bill (gas, electric, water bill)"
+    },
+    {
+      value: "credit-card-or-bank-statement",
+      text: "Recent credit card or bank statement",
+      selected: true
+    },
+    {
+      value: "building-society-or-credit-union-statement",
+      text: "Recent Building Society or Credit Union Statement"
+    },
+    {
+      value: "tenancy-agreement",
+      text: "Tenancy agreement"
+    },
+    {
+      value: "mortgage-agreement",
+      text: "Mortgage agreement"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "file-upload-1",
+  label: {
+    text: "Select proof of address file",
+    classes: "govuk-label--m"
+  },
+  
+  hint: { 
+    html: "We can accept the following file types: .jpg, .jpeg, .png, .pdf. <br/> We can accept a file with the maximum size of 15mb."
+}
+}) }}
+
+        <!-- <p>[Insert question content here]</p> -->
+
+        <!-- <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p> -->
+
+        <button class="govuk-button" data-module="govuk-button">Upload my proof of address</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
