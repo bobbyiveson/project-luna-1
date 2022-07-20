@@ -1,66 +1,76 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Address lookup</h1>
 
-    <h1 class="govuk-heading-xl">Address lookup</h1>
+      
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Postcode</h2>
 
-    <form class="form" action="/how-to-upload" method="post">
+      <p class="govuk-!-font-weight-bold">
+          {{ data["postcode"] }}
+          <a href="/what-is-your-postcode" class="govuk-!-display-inline-block govuk-!-padding-left-9 govuk-!-font-weight-regular">
+            Change
+            <span class="govuk-visually-hidden">your postcode</span>
+          </a>
+      </p>
+      <br/>
 
-      <h2 class="govuk-heading-m">Postcode</h2>
 
-      <p class="govuk-!-font-weight-bold">SE1 4UE <a href="/what-is-your-address">change</a></p>
+      <form action="/how-to-upload" method="post" novalidate>
 
-      {% from "govuk/components/select/macro.njk" import govukSelect %}
+        <input type="hidden" name="answers-checked" value="true">
 
-      {{ govukSelect({
-      id: "address-look-up",
-      name: "address-look-up",
-      label: {
-      text: "Select your address"
-      },
-      items: [
-      {
-      value: "select address",
-      text: "select address from this list",
-      selected: true
-      },
-      {
-      value: "1 Ocean Drive",
-      text: "1 Ocean Drive"
-      },
-      {
-      value: "2 Ocean Drive",
-      text: "2 Ocean Drive"
-      },
-      {
-      value: "3 Ocean Drive",
-      text: "3 Ocean Drive"
-      },
-      {
-      value: "4 Ocean Drive",
-      text: "4 Ocean Drive"
-      }
-      ]
-      }) }}
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        {{ govukSelect({
+          id: "address-look-up",
+          name: "address-look-up",
+          label: {
+            text: "Select your address",
+            classes: "govuk-!-font-weight-bold govuk-body govuk-label--m govuk-!-margin-bottom-2"
+          },
+          items: [
+            {
+            value: "1 Ocean Drive",
+            text: "1 Ocean Drive",
+            selected: true
+            },
+            {
+            value: "2 Ocean Drive",
+            text: "2 Ocean Drive"
+            },
+            {
+            value: "3 Ocean Drive",
+            text: "3 Ocean Drive"
+            },
+            {
+            value: "4 Ocean Drive",
+            text: "4 Ocean Drive"
+            }
+          ]
+        }) }}
 
-      <p><a href="#">I can't find my address in this list</a></p>
+        <br/>
 
-    </form>
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
 
+      </form>
+
+      <a href="/address-form">I can't find my address in this list</a>
+
+    </div>
   </div>
-</div>
-
 {% endblock %}

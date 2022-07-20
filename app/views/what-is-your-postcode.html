@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">What is your address?</h1>
+      <h1 class="govuk-heading-xl">What is your postcode?</h1>
 
       <form class="form" action="/address-look-up" method="post">
 
@@ -22,11 +22,12 @@
         {{ govukInput({
           label: {
             text: "Postcode",
-            classes: "govuk-label--l",
+            classes: "govuk-label--m",
             isPageHeading: false
           },
           id: "postcode",
-          name: "postcode"
+          name: "postcode",
+          value: data['postcode']
         }) }}
 
 
