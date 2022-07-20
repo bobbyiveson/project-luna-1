@@ -32,9 +32,10 @@
           },
           items: [
             {
-              value: "09:00",
-              text: "09:00",
-              selected: true
+              value: "25th July 2022",
+              text: "25th July 2022",
+              selected: true,
+              checked: checked("select-date", "25th July 2022")
             },
             {
               value: "26 July 2022",
@@ -51,6 +52,8 @@
           ]
         }) }}
 
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
         {{ govukSelect({
           id: "select-time",
           name: "select-time",
@@ -61,12 +64,12 @@
           items: [
             {
               value: "09:00",
-              text: "09:00"
+              text: "09:00",
+              selected: true
             },
             {
               value: "10:00",
-              text: "10:00",
-              selected: true
+              text: "10:00"
             },
             {
               value: "11:00",
@@ -80,6 +83,8 @@
         }) }}
 
         <!-- <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p> -->
+
+        <!-- <p>You have selected the {{ data['select-date'] }} at {{ data['select-time'] }}.</p> -->
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
