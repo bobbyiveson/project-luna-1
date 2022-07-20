@@ -18,7 +18,12 @@
       <form class="form" action="/what-is-your-postcode" method="post">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
+          {{ govukInsetText({
+            text: "This needs to match your ID."
+          }) }}
+          
         {{ govukInput({
           label: {
             text: "First Name",
@@ -26,7 +31,9 @@
             isPageHeading: false
           },
           id: "first-name",
-          name: "first-name"
+          name: "first-name",
+          value: data['first-name'],
+          attributes: "required"
         }) }}
 
         {{ govukInput({
@@ -39,7 +46,8 @@
             text: "Leave blank if none"
           },
           id: "middle-name",
-          name: "middle-name"
+          name: "middle-name",
+          value: data['middle-name']
         }) }}
 
         {{ govukInput({
@@ -49,7 +57,8 @@
             isPageHeading: false
           },
           id: "surname",
-          name: "surname"
+          name: "surname",
+          value: data['surname']
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
