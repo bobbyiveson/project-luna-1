@@ -20,66 +20,65 @@
             {% from "govuk/components/select/macro.njk" import govukSelect %}
 
             {{ govukSelect({
-            id: "upload-photo-id",
-            name: "upload-photo-id",
-            label: {
-            text: "Select type of photo identification",
-            classes: "govuk-label--m"
-            },
-            items: [
-            {
-            value: "Select photo identification type from this list",
-            text: "Select photo identification type from this list",
-            selected: true
-            },
-            {
-            value: "Passport",
-            text: "Passport"
-            },
-            {
-            value: "Driving License",
-            text: "Driving License"
-            },
-            {
-            value: "Formal ID Card",
-            text: "Formal ID Card"
-            }
-            ]
+                id: "photo-id-type",
+                name: "photo-id-type",
+                label: {
+                    text: "Select type of photo ID",
+                    classes: "govuk-label--m"
+                },
+                items: [
+                    {
+                        value: "Select photo ID type from this list",
+                        text: "Select photo ID type from this list",
+                        selected: true
+                    },
+                    {
+                        value: "Passport",
+                        text: "Passport"
+                    },
+                    {
+                        value: "Driving License",
+                        text: "Driving License"
+                    },
+                    {
+                        value: "Formal ID Card",
+                        text: "Formal ID Card"
+                    }
+                ]
             }) }}
 
             {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
             {{ govukFileUpload({
-            id: "photo-ID",
-            name: "photo-ID",
-            label: {
-            text: "Upload a file",
-            classes: "govuk-label--m"
-            },
-            hint: {
-            html: "We can accept the following file types: .jpg .jpeg .png .pdf.<br />We can accept a file with the
-            maximum size of 15mb."
-            }
+                id: "photo-ID",
+                name: "photo-ID",
+                label: {
+                    text: "Select photo ID file",
+                    classes: "govuk-label--m"
+                },
+                hint: {
+                    html: "We can accept the following file types: .jpg .jpeg .png .pdf<br />We can accept a file with the maximum size of 15mb."
+                }
             }) }}
 
             {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
             {{ govukDateInput({
-            id: "expiration-date",
-            namePrefix: "expiration-date",
-            fieldset: {
-            legend: {
-            text: "Expiration date",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-            }
-            },
-            hint: {
-            text: "Please use the day, month, year format. For example, 27 3 2007"
-            }
+                id: "expiration-date",
+                namePrefix: "expiration-date",
+                fieldset: {
+                    legend: {
+                        text: "Expiration date",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                hint: {
+                    text: "Please use the day, month, year format. For example, 27 03 2007"
+                }
             }) }}
 
-            <button class="govuk-button" data-module="govuk-button">Continue</button>
+            <button class="govuk-button" data-module="govuk-button">Submit my photo ID</button>
 
         </form>
 
