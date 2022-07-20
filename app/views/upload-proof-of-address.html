@@ -20,8 +20,8 @@
       {% from "govuk/components/select/macro.njk" import govukSelect %}
 
       {{ govukSelect({
-        id: "proof-of-address",
-        name: "proof-of-address",
+        id: "proof-of-address-type",
+        name: "proof-of-address-type",
         label: {
           text: "Select proof of address",
           classes: "govuk-label--m"
@@ -54,8 +54,8 @@
       {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
       {{ govukFileUpload({
-        id: "file-upload-1",
-        name: "file-upload-1",
+        id: "proof-of-address",
+        name: "proof-of-address",
         label: {
           text: "Select proof of address file",
           classes: "govuk-label--m"

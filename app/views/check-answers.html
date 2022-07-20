@@ -22,7 +22,7 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['first-name'] }}
+            {{ data['first-name'] }} {{ data['middle-name'] }} {{ data['surname'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="/what-is-your-name">
@@ -37,14 +37,15 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            73 Appleburn Way<br/>
-            Chester<br/>
-            WA14 1JY
+            {{ data['address-line-1'] }}<br/>
+            {{ data['address-line-2'] }}<br/>
+            {{ data['city'] }}<br/>
+            {{ data['postcode'] }}<br/>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="/address-form">
               Change
-              <span class="govuk-visually-hidden"> date of birth</span>
+              <span class="govuk-visually-hidden"> address</span>
             </a>
           </dd>
         </div>
@@ -54,13 +55,13 @@
             Photo ID
           </dt>
           <dd class="govuk-summary-list__value">
-            Passport<br/>
-            name-of-image.jpeg
+            {{ data['photo-id-type'] }}<br/>
+            {{ data['photo-ID'] }}<br/>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="/upload-photo-id">
               Change
-              <span class="govuk-visually-hidden"> contact information</span>
+              <span class="govuk-visually-hidden"> photo ID</span>
             </a>
           </dd>
         </div>
@@ -70,23 +71,75 @@
             Appointment time
           </dt>
           <dd class="govuk-summary-list__value">
-            <p></p>
-            <p>sarah.phillips@example.com</p>
+            <p>{{ data['select-date'] }}</p>
+            <p>{{ data['select-time'] }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="/arrange-appointment-time">
+              Change
+              <span class="govuk-visually-hidden"> appointment time</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>{{ data['contact-by-email'] }}</p>
+            <p>{{ data['contact-by-phone'] }}</p>
+            <p>{{ data['contact-by-text'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/contact-preference">
               Change
               <span class="govuk-visually-hidden"> contact details</span>
             </a>
           </dd>
         </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Proof of address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['proof-of-address-type'] }}<br/>
+            {{ data['proof-of-address'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/upload-proof-of-address">
+              Change
+              <span class="govuk-visually-hidden"> proof of address</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            ID sharing
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>Consent to share with:</p>
+            {% for option in data['share-documents'] %}
+              <li >{{ option }}</li>
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/share-your-documents">
+              Change
+              <span class="govuk-visually-hidden"> ID sharing preferences</span>
+            </a>
+          </dd>
+        </div>
+
       </dl>
 
       <h2 class="govuk-heading-m">Now send your application</h2>
 
       <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form action="/confirmation" method="post" novalidate>
+      <form action="/thank-you-for-submitting" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
