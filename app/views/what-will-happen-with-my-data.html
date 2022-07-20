@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      What will happen with my data?
+    </h1>
+
+    <p>Your documents will be stored securely.</p>
+
+    <p>You documents will only be accessed by services when you apply and confirm you have already uploaded your documents.</p>
+
+    <p>The only people who will see you documents will be people who are assessing your application.</p>
+
+    <p>We may have to contact you in the future to re-confirm your details.</p>
+
+    <h2 class="govuk-heading-m">Services which can access your data</h2>
+    
+    <p>A service</p>  <!-- {{ data['share-documents'] }} | Prev page not yet implemented, but link answers here when it is -->
+    <p>Another service</p>
+ 
+    <p>
+      <a href="/share-documents">
+        Change
+        <span class="govuk-visually-hidden"> services you have selected to grant access to your data.</span>
+      </a>
+    </p>
+
+
+
+    <form class="form" action="/check-answers" method="post">
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        idPrefix: "do-you-consent",
+        name: "do-you-consent",
+        items: [
+          {
+            value: "I consent to my documents being accessed for the above services if I choose to make an application in future.",
+            text: "I consent to my documents being accessed for the above services if I choose to make an application in future."
+          },
+          {
+            value: "I do not want to consent to my documents being accessed.",
+            text: "I do not want to consent to my documents being accessed."
+          }
+        ]
+      }) }}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
