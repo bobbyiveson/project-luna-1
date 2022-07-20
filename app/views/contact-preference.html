@@ -13,13 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Are we able to contact you for more information?</h1>
+    <h1 class="govuk-heading-xl">How would you prefer to be contacted?</h1>
 
-    <form class="form" action="/share-your-documents" method="post">
+    <form class="form" action="/upload-proof-of-address" method="post">
 
-      <p>We might need some more information before we can verify your identity.</p>
-      <p>We may also need alternative forms of ID in the future if your current ID expires.</p>
-
+      <p>We will need your contact details to confirm your appointment. We will send confirmation of your appointment through your preferred form of contact.</p>
+      <p>We may also have some questions about your application.</p>
+      
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -43,7 +43,6 @@
         name: "contact-by-phone",
         type: "tel",
         autocomplete: "tel",
-        spellcheck: false,
         classes: "govuk-!-width-one-third",
         label: {
           text: "Phone number"
@@ -51,52 +50,46 @@
       }) }}
       {% endset -%}
 
-      {{ govukRadios({
-      idPrefix: "can-we-email-you",
-      name: "can-we-email-you",
-      fieldset: {
-        legend: {
-          text: "Can we email you?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
+      {% set textHtml %}
+      {{ govukInput({
+        id: "contact-by-text",
+        name: "contact-by-text",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Mobile phone number"
         }
-      },
-      items: [
-        {
-          value: "yes",
-          text: "Yes",
-          conditional: {
-            html: emailHtml
-          }
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ]
       }) }}
+      {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "can-we-call-you",
-        name: "can-we-call-you",
-        fieldset: {
-          legend: {
-            text: "Can we call you?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-          }
+        idPrefix: "contact",
+        name: "contact",
+        hint: {
+          text: "Select one option."
         },
         items: [
           {
-            value: "yes",
-            text: "Yes",
+            value: "email",
+            text: "Email",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "phone",
+            text: "Phone",
             conditional: {
               html: phoneHtml
             }
           },
           {
-            value: "no",
-            text: "No"
+            value: "text",
+            text: "Text message",
+            conditional: {
+              html: textHtml
+            }
           }
         ]
       }) }}
