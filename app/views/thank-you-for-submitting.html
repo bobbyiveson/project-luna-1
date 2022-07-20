@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Thank you for submitting your application
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Next steps
+      </h2>
+
+      <p>You will receive an email or text message confirming your appointment.<br>
+        <br>
+        If you can no longer attend your time-slot please contact us on:<br>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>0121 1234567 or council@birmingham.com.</li>
+        </ul></p>
+      <p>
+      These details will also be on your confirmation message.<br>
+      <br>
+      Once we have verified your identity we will store a proof of identity certificate. This can be used to access any of the government services you have selected.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
