@@ -17,30 +17,29 @@
       What will happen with my data?
     </h1>
 
-    <p>Your documents will be stored securely.</p>
+    <p>Your documents will be stored securely until your scheduled appointment.</p>
 
-    <p>You documents will only be accessed by services when you apply and confirm you have already uploaded your documents.</p>
+    <p>They can only be accessed by the customer service agent running your appointment.</p>
 
-    <p>The only people who will see you documents will be people who are assessing your application.</p>
+    <p>Once we have confirmed your identity, we will erase any personal ID documents from our system.</p>
+
+    <p>We will store a verification certificate on file until your photographic ID expires.</p>
 
     <p>We may have to contact you in the future to re-confirm your details.</p>
 
     <h2 class="govuk-heading-m">Services which can access your data</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    <dd class="govuk-summary-list__value">
-      {{ data['share-documents'] }}
-    </dd>
-  </dl>
- 
+        {% for option in data['share-documents'] %}
+        <li >{{ option }}</li>
+        {% endfor %}
+        
+    </dl>
     <p>
       <a href="/share-your-documents">
-        Change
-        <span class="govuk-visually-hidden"> services you have selected to grant access to your data.</span>
-      </a>
-    </p>
-
-
-
+       Change
+       <span class="govuk-visually-hidden"> services you have selected to grant access to your data.</span>
+     </a>
+   </p>
     <form class="form" action="/check-answers" method="post">
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
