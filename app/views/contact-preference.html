@@ -27,6 +27,7 @@
       {{ govukInput({
         id: "contact-by-email",
         name: "contact-by-email",
+        value: data['contact-by-email'],
         type: "email",
         autocomplete: "email",
         spellcheck: false,
@@ -41,6 +42,7 @@
       {{ govukInput({
         id: "contact-by-phone",
         name: "contact-by-phone",
+        value: data['contact-by-phone'],
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third",
@@ -54,6 +56,7 @@
       {{ govukInput({
         id: "contact-by-text",
         name: "contact-by-text",
+        value: data['contact-by-text'],
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third",
@@ -75,14 +78,16 @@
             text: "Email",
             conditional: {
               html: emailHtml
-            }
+            },
+            checked: checked("contact", "email")
           },
           {
             value: "phone",
             text: "Phone",
             conditional: {
               html: phoneHtml
-            }
+            },
+            checked: checked("contact", "phone")
           },
           {
             value: "text",
@@ -90,7 +95,8 @@
             conditional: {
               html: textHtml
             }
-          }
+          },
+          checked: checked("contact", "text")
         ]
       }) }}
 
