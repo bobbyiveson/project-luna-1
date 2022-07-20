@@ -26,12 +26,14 @@
     <p>We may have to contact you in the future to re-confirm your details.</p>
 
     <h2 class="govuk-heading-m">Services which can access your data</h2>
-    
-    <p>A service</p>  <!-- {{ data['share-documents'] }} | Prev page not yet implemented, but link answers here when it is -->
-    <p>Another service</p>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <dd class="govuk-summary-list__value">
+      {{ data['share-documents'] }}
+    </dd>
+  </dl>
  
     <p>
-      <a href="/share-documents">
+      <a href="/share-your-documents">
         Change
         <span class="govuk-visually-hidden"> services you have selected to grant access to your data.</span>
       </a>

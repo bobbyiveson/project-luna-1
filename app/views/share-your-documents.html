@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Do you want to share these documents to access other services?</h1>
+
+      <form class="form" action="/what-will-happen-with-my-data" method="post">
+
+        <p>You can save time in the future by choosing to share your identity documents with your local council.</p>
+        
+        <p>Your documents will only be accessed by the services you choose, and only when you make an application. Please select which services you would like to share your documents with.</p>
+
+        <p>If you do not wish to share your documents, please select 'I do not wish to share my documents'.</p>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          idPrefix: "share-documents",
+          name: "share-documents",
+          items: [
+            {
+              value: "Council tax",
+              text: "Council tax"
+            },
+            {
+              value: "Housing benefit",
+              text: "Housing benefit"
+            },
+            {
+              value: "Child tax credit",
+              text: "Child tax credit"
+            },
+            {
+              value: "Blue badge permit",
+              text: "Blue badge permit"
+            },
+            {
+              value: "Food bank referrals",
+              text: "Food bank referrals"
+            },
+            {
+              value: "Apply for a school place",
+              text: "Apply for a school place"
+            },
+            {
+              value: "Apply for a bus pass",
+              text: "Apply for a bus pass"
+            },
+            {
+              value: "Register a birth",
+              text: "Register a birth"
+            },
+            {
+              value: "Register a death",
+              text: "Register a death"
+            },
+            {
+              value: "Register a marriage",
+              text: "Register a marriage"
+            },
+            {
+              value: "Apply to be a foster carer",
+              text: "Apply to be a foster carer"
+            },
+            {
+              value: "Apply for council housing",
+              text: "Apply for council housing"
+            },
+            {
+              value: "I do not want to share my documents",
+              text: "I do not want to share my documents"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
