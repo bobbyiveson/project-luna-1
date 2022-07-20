@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">When is the best time to arrange a virtual appointment?</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+        <p>We need to check that you match your photo ID.</p>
+
+        <p>The meeting will take around 5 minutes and will be held on Google Meet.</p>
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "select-date",
+          name: "select-date",
+          label: {
+            text: "Select a date",
+            classes: "govuk-label--m"
+          },
+          items: [
+            {
+              value: "09:00",
+              text: "09:00",
+              selected: true
+            },
+            {
+              value: "26 July 2022",
+              text: "26 July 2022"
+            },
+            {
+              value: "27 July 2022",
+              text: "27 July 2022"
+            },
+            {
+              value: "28 July 2022",
+              text: "28 July 2022"
+            }
+          ]
+        }) }}
+
+        {{ govukSelect({
+          id: "select-time",
+          name: "select-time",
+          label: {
+            text: "Select a time",
+            classes: "govuk-label--m"
+          },
+          items: [
+            {
+              value: "09:00",
+              text: "09:00"
+            },
+            {
+              value: "10:00",
+              text: "10:00",
+              selected: true
+            },
+            {
+              value: "11:00",
+              text: "11:00"
+            },
+            {
+              value: "12:00",
+              text: "12:00"
+            }
+          ]
+        }) }}
+
+        <!-- <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p> -->
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
