@@ -120,10 +120,14 @@
             ID sharing
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>Consent to share with:</p>
-            {% for option in data['share-documents'] %}
-              <li >{{ option }}</li>
-            {% endfor %}
+            {% if data['share-documents'].length == 1 %}
+              {{ data['share-documents'] }}
+            {% else %}
+              <p>Consent to share with:</p>
+              {% for option in data['share-documents'] %}
+                <li >{{ option }}</li>
+              {% endfor %}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="/share-your-documents">
