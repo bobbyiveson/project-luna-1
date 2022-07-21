@@ -27,7 +27,10 @@
           },
           id: "address-line-1",
           name: "address-line-1",
-          value: data['address-line-1']
+          value: data['address-line-1'],
+          attributes: {
+            required: true
+          }
         }) }}
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -53,7 +56,10 @@
           },
           id: "city",
           name: "city",
-          value: data['city']
+          value: data['city'],
+          attributes: {
+            required: true
+          }
         }) }}
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -66,7 +72,10 @@
           },
           id: "postcode",
           name: "postcode",
-          value: data['postcode']
+          value: data['postcode'],
+          attributes: {
+            required: true
+          }
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
