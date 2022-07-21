@@ -37,10 +37,15 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['address-line-1'] }}<br/>
-            {{ data['address-line-2'] }}<br/>
-            {{ data['city'] }}<br/>
-            {{ data['postcode'] }}<br/>
+            {% if data['address-line-1'] %}
+              {{ data['address-line-1'] }}<br/>
+              {{ data['address-line-2'] }}<br/>
+              {{ data['city'] }}<br/>
+              {{ data['postcode'] }}<br/>
+            {% else %}
+              {{ data['address-look-up'] }}<br/>
+              {{ data['postcode'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="/address-form">
