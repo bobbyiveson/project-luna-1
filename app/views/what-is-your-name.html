@@ -33,7 +33,9 @@
           id: "first-name",
           name: "first-name",
           value: data['first-name'],
-          attributes: "required"
+          attributes: {
+            required: true
+          }
         }) }}
 
         {{ govukInput({
@@ -58,7 +60,10 @@
           },
           id: "surname",
           name: "surname",
-          value: data['surname']
+          value: data['surname'],
+          attributes: {
+            required: true
+          }
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
