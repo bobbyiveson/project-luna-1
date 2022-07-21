@@ -18,4 +18,11 @@ router.post('/share-documents-answer', function (req, res) {
   
   })
 
+  router.post('/what-will-happen-with-my-data', function (req, res) {
+    if (req.session.data['do-you-consent'] == "I do not want to consent to my documents being accessed.") {
+      req.session.data['share-documents'] = ["I do not want to share my documents"];
+    }
+    res.redirect('check-answers')
+  })
+
 module.exports = router
