@@ -6,12 +6,13 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   cypress: cypress-io/cypress@2.1.0
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - cypress/run:
+      -cypress/run:
         start: npm start
-        wait-on: http:localhost:3000
+        wait-on: http://localhost:3000
